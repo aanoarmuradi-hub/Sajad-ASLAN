@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellcome to Aslan's Shop </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="{% static 'css/dashboard.css'%}">
+</head>
+
+<body>    
+    <header class="header">
+        <a class="link" href="#">
+            <i class="fa fa-home"></i>
+            Home</a>
+        <a class="link" href="#">
+            <i class="fas fa-headphones"></i>
+            Contact</a>
+        <a class="link" href="#">
+            <i class="fa fa-info-circle"></i>
+            About</a>
+        <a class="logo" > <img src="#" alt="Logo"></a>
+    </header>
+
+    <nav class="nav">
+        <a class="navers" href="#">
+            <i class="fa fa-shopping-cart"></i>
+            Cart</a>
+        <a class="navers" href="#">
+            <i class="fas fa-clipboard-list"></i>
+            View Products</a>
+        <a class="navers" href="#">
+            <i class="fas fa-angle-double-right"></i>
+            Switch to Seller Dashboard</a>
+        <a class="navers" href="#">
+            <i class="fa fa-user-plus"></i>
+            Become a Seller</a>
+    </nav>
+
+    <main class="main-link">
+        {% for product in products %}
+        <section class="section">
+            <img src="{{ product.image.url }}"alt="product img">
+            <h3>Name:{{product.name }}</h3>
+            <p>Price:{{product.price }}</p>
+            <p>Stock:{{product.stock}}</p>
+            <div class="button">      
+                <a class="section-link" href="#">Add to Cart</a>
+                <a class="section-link" href="/buy-section/{{ product.id }}/">Buy Product</a>
+            </div>
+        </section>
+        {% endfor %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-info">
+            <div class="info-box">
+                <h3 class="footer-tital">
+                    Here Is What We Can Do For You
+                </h3>
+                <p class="footer-pragraf">
+                    Aslan'Shope store is a shop designed to take your business to a higher level. If you are reading this, it means that you are on our demo website, but we can turn this website into your own site with your own design and products.
+                    <br>
+                    <br>
+                    فروشگاه سجاداسلان طراحی شده است تا کسب و کار شما را به سطح بالاتری ببرد. اگر این را می‌خوانید، به این معنی است که شما در وب‌سایت نمایشی ما هستید، اما ما می‌توانیم این وب‌سایت را به سایت خودتان با طراحی و محصولات خودتان تبدیل کنیم
+                </p>
+            </div>
+
+            <div class="link-box">
+                <ul class="footer-list">
+                    <li class="footer-link" >
+                        <a class="link" href="#">Home</a>
+                    </li>
+                    <li class="footer-link">
+                        <a class="link" href="#">About</a >
+                    </li>
+                    <li class="footer-link">
+                        <a class="link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+<p class="copy-right">&copy;Sajad Aslan</p>
+
+
+<script src="{% static 'js/shop-dashboard.js' %}"></script>
+</body>
+</html>
