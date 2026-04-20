@@ -86,16 +86,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-import dj_database_url
+
+
+
 DATABASES = {
-    'default':{
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "inventory_db",
-        "USER": "postgres",
-        "PASSWORD": "1234554321",
-        "HOST": "127.0.0.1",
-        "PORT": "1234",
-    }
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 
@@ -170,4 +165,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
-
+127.0.0.1

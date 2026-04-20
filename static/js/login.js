@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 localStorage.setItem("access", data.access);
                 const token = localStorage.getItem("access");
 
-                const Response = await fetch("http://127.0.0.1:8000/users/user/info/", {
+                const Response = await fetch("https://aslan-store.onrender.com/users/user/info/", {
                     headers: {
                         "Authorization": `Bearer ${token}`
             }
