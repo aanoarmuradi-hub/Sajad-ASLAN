@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!y_%cizt1+09op*mb@7o2x3whehp5-jrhm%f^ch9oswj5moa#r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -134,7 +134,7 @@ USE_TZ = True
 
 AUTH_USER_MODEL = "users.User"
 
-DEBUG = True
+DEBUG = False
 
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
@@ -153,8 +153,6 @@ REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'config.exceptions.drf_exception_handler',
     
 
-    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
-    "PAGE_SIZE": 10,
 }
 
 SIMPLE_JWT = {
