@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/users/user/info/", {
+        const response = await fetch("https://aslan-store.onrender.com/users/user/info/", {
             
             headers: {
                 "Authorization": `Bearer ${token}`
@@ -51,7 +51,7 @@ async function getStats() {
     const token = localStorage.getItem("access");
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/users/dashboard/stats/", {
+        const response = await fetch("https://aslan-store.onrender.com/users/dashboard/stats/", {
             headers: {
                 "Authorization": `Bearer ${token}`
             }

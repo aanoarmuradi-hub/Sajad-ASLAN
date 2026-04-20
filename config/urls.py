@@ -38,5 +38,6 @@ urlpatterns = [
     path('shop/dashboard/', ShopView.as_view()),
     path('buy-section/<int:id>/', BuyView.as_view()),
     path('home/',lambda request:render(request,'shop.html') )
+    
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

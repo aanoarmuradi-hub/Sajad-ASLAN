@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const password = document.querySelector("#password").value;
 
         try {
-            const response = await fetch("http://127.0.0.1:8000/api/token/", {
+            const response = await fetch("https://aslan-store.onrender.com/api/token/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
