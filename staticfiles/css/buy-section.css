@@ -1,0 +1,99 @@
+:root {
+    --primary: #4f46e5;      /* آبی بنفش */
+    --secondary: #06b6d4;    /* آبی روشن */
+    --bg: #f8fafc;           /* بک‌گراند */
+    --card: #ffffff;         /* کارت */
+    --text: #1e293b;         /* متن */
+    --muted: #64748b;        /* متن کم‌رنگ */
+}
+* {
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #4f46e5, #06b6d4, #22c);
+    
+}
+.page-wrapper {
+    width: 100%;
+    min-height: 100vh;  
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    justify-content:space-between;
+    padding: 30px;
+    background: #22c;
+}
+.header .link{
+    color: white;
+    text-decoration: none;
+
+}
+
+.main{
+    display: flex;
+    margin-left: 220px;
+    
+}
+
+.main .product-info{
+    margin-left: 150px;
+    line-height: 100px;
+    background: rgba(255, 255, 255, 0.47);
+    padding: 20px;
+    text-align: center;
+    width: 50%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    
+}
+
+.main .product-info .buy-button{
+    line-height: 30px;
+    background: rgba(179, 235, 245, 0.733);
+    border-radius: 10px;
+    padding: 20px;
+    
+}
+.main .product-info .buy-button  button { 
+    margin-left: 40%;
+    margin-top: 20px;
+    display: block;
+    background: black;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    
+}
+.main .product-info .buy-button label{
+    display: block;
+    
+}
+@media (max-width: 768px) {
+
+    .main {
+        flex-direction: column;   
+        margin-left: 0;           
+        padding: 10px;
+    }
+
+    .main .product-info {
+        margin-left: 0;
+        margin: 0%;          
+        width: 100%;          
+        line-height: 15px;    
+    }
+
+    .main .product-info .buy-button button {
+        margin-left: 0;        
+        width: 100%;          
+    }
+
+}
