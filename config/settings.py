@@ -41,9 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users',
     'products',
-    'sells',
     'rest_framework',
     "corsheaders",
 ]
@@ -89,8 +87,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 
+
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(
+        os.environ.get("DATABASE_URL") or "sqlite:///db.sqlite3"
+    )
 }
 
 
@@ -132,7 +133,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 
-AUTH_USER_MODEL = "users.User"
 
 DEBUG = False
 

@@ -27,14 +27,9 @@ from products.views import ShopView,BuyView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("users/", include("users.urls")),
-    path("products/", include("products.urls")),
-    path("sells/", include("sells.urls")),
     path("api/token/", TokenObtainPairView.as_view()),
     path("api/token/refresh/", TokenRefreshView.as_view()),
-    path('', lambda request: render(request, 'login.html')),
-    path('login/', lambda request: render(request, 'login.html')),
-    path('dashboard/', lambda request: render(request, 'dashboard.html')),
+    path('', ShopView.as_view()),
     path('shop/dashboard/', ShopView.as_view()),
     path('buy-section/<int:id>/', BuyView.as_view()),
     path('home/',lambda request:render(request,'shop.html') )
