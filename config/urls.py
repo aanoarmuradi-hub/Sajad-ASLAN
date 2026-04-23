@@ -23,7 +23,7 @@ from rest_framework_simplejwt.views import TokenRefreshView
 from django.conf import settings
 from django.conf.urls.static import static
 from products.models import Product
-from products.views import ShopView,BuyView
+from products.views import ShopView,BuyView,ViewNewProduct,ViewProducts
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,7 +32,7 @@ urlpatterns = [
     path('', ShopView.as_view()),
     path('shop/dashboard/', ShopView.as_view()),
     path('buy-section/<int:id>/', BuyView.as_view()),
-    path('home/',lambda request:render(request,'shop.html') )
-    
+    path('products/list/', ViewProduct.as_view(), name='products-list')
+    path('new/products/', ViewNewProduct.as_view(), name='new_products')
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
