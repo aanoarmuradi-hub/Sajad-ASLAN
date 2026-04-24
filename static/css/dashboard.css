@@ -157,8 +157,15 @@ img{
         margin-left: 0;
     }
 
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
     
     .nav a {
+
         white-space: nowrap;
     }
 
@@ -169,3 +176,4 @@ img{
     margin-left: 50%;
     padding:10x;
 }
+
