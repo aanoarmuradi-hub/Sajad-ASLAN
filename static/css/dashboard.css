@@ -157,10 +157,15 @@ img{
         margin-left: 0;
     }
 
+    
+    .nav a {
+        white-space: nowrap;
+    }
+
 
 }
+
 .copy-right{
     margin-left: 50%;
     padding:10x;
 }
-
