@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!y_%cizt1+09op*mb@7o2x3whehp5-jrhm%f^ch9oswj5moa#r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -86,11 +86,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 
-
-
-
-
-
 DATABASES = {
     'default': dj_database_url.config(
         default=os.getenv("DATABASE_URL"),
@@ -98,8 +93,6 @@ DATABASES = {
         ssl_require=True
     )
 }
-
-
 
 
 # Password validation
@@ -138,7 +131,7 @@ USE_TZ = True
 
 
 
-DEBUG = False
+DEBUG = True
 
 
 STATIC_ROOT = BASE_DIR / "staticfiles"

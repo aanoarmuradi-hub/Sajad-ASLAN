@@ -32,7 +32,7 @@ urlpatterns = [
     path('', ShopView.as_view()),
     path('shop/dashboard/', ShopView.as_view()),
     path('buy-section/<int:id>/', BuyView.as_view()),
-    path('products/list/', ViewProduct.as_view(), name='products-list')
+    path('products/list/', ViewProducts.as_view(), name='products-list'),
     path('new/products/', ViewNewProduct.as_view(), name='new_products')
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
