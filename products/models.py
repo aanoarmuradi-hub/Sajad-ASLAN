@@ -6,6 +6,7 @@ class Product(models.Model):
     price = models.FloatField()
     stock = models.IntegerField()
     image = models.ImageField(upload_to='products/', null=True, blank=True)
+    image_url = models.URLField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
 

@@ -1,7 +1,9 @@
-from django.shortcuts import render
 from rest_framework.views import APIView
 from .models import Product
 from django.views import View
+from django.shortcuts import render, redirect
+import requests
+
 
 class ShopView(View):
     def get(self, request):
@@ -27,3 +29,5 @@ class ViewNewProduct(View):
     def get(self, request):
         products = Product.objects.all().order_by('-created_at')[:10]
         return render(request, 'new-products.html', {'products': products})
+
+
