@@ -5,7 +5,7 @@ import requests
 
 
 SUPABASE_URL = "https://sgnbhepohzgaruhaljas.supabase.co"
-SUPABASE_KEY = "sb_secret_vvDssOm_XZOXJnizxn_5cQ_LkoUtcxQ"
+
 
 class ProductAdmin(admin.ModelAdmin):
 
