@@ -13,8 +13,9 @@ import os
 from pathlib import Path
 from datetime import timedelta
 import dj_database_url
-
+from dotenv import load_dotenv
 load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,7 +29,6 @@ SECRET_KEY = 'django-insecure-!y_%cizt1+09op*mb@7o2x3whehp5-jrhm%f^ch9oswj5moa#r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-load_dotenv()
 
 ALLOWED_HOSTS = ['*']
 
@@ -36,6 +36,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Application definition
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',

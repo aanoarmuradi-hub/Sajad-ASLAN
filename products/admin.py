@@ -1,10 +1,12 @@
 from django.contrib import admin
 from .models import Product
 import requests
+import os
 
 
 
-SUPABASE_URL = "https://sgnbhepohzgaruhaljas.supabase.co"
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
 
 class ProductAdmin(admin.ModelAdmin):
