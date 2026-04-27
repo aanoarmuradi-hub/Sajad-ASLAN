@@ -23,10 +23,11 @@ class ProductAdmin(admin.ModelAdmin):
 
             headers = {
                 "Authorization": f"Bearer {SUPABASE_KEY}",
-                "Content-Type": file.content_type
-            }
+                "Content-Type": "application/octet-stream"
+}
 
             response = requests.post(upload_url, headers=headers, data=file.read())
+          
 
             print("STATUS:", response.status_code)
 
@@ -38,3 +39,4 @@ class ProductAdmin(admin.ModelAdmin):
 
 # 💥 مهم‌ترین خط:
 admin.site.register(Product, ProductAdmin)
+
