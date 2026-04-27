@@ -4,15 +4,18 @@ import requests
 import os
 
 class ProductAdmin(admin.ModelAdmin):
+    fields = ('name', 'price', 'stock', 'image')  # 👈 مهم
 
     def save_model(self, request, obj, form, change):
         print("🔥 SAVE_MODEL CALLED 🔥")
+        print("FILES:", request.FILES)
 
         file = request.FILES.get('image')
 
         if file:
-            file_name = file.name
+            import requests, os
 
+            file_name = file.name
             SUPABASE_URL = os.getenv("SUPABASE_URL")
             SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
@@ -24,6 +27,8 @@ class ProductAdmin(admin.ModelAdmin):
             }
 
             response = requests.post(upload_url, headers=headers, data=file.read())
+
+            print("STATUS:", response.status_code)
 
             if response.status_code in [200, 201]:
                 obj.image_url = f"{SUPABASE_URL}/storage/v1/object/public/media/{file_name}"
