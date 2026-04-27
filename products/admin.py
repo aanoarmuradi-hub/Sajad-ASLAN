@@ -7,7 +7,7 @@ class ProductAdmin(admin.ModelAdmin):
     fields = ('name', 'price', 'stock', 'image')  # 👈 مهم
 
     def save_model(self, request, obj, form, change):
-        print("🔥 hello world 🔥")
+        print("🔥 hello sajad 🔥")
         print("FILES:", request.FILES)
 
         file = request.FILES.get('image')
