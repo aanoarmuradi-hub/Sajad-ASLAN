@@ -32,5 +32,4 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 # 💥 مهم‌ترین خط:
-admin.site.unregister(Product)
 admin.site.register(Product, ProductAdmin)
