@@ -3,17 +3,18 @@ from .models import Product
 import requests
 import os
 
+
 class ProductAdmin(admin.ModelAdmin):
-    fields = ('name', 'price', 'stock', 'image')  # 👈 مهم
+    fields = ('name', 'price', 'stock', 'image')
 
     def save_model(self, request, obj, form, change):
-        print("🔥 hello sajad 🔥")
+        print("🔥 SAVE_MODEL CALLED 🔥")
         print("FILES:", request.FILES)
 
         file = request.FILES.get('image')
 
         if file:
-            import requests, os
+            print("🚀 FILE DETECTED")
 
             file_name = file.name
             SUPABASE_URL = os.getenv("SUPABASE_URL")
@@ -21,15 +22,18 @@ class ProductAdmin(admin.ModelAdmin):
 
             upload_url = f"{SUPABASE_URL}/storage/v1/object/media/{file_name}"
 
-            headers = {
-                "Authorization": f"Bearer {SUPABASE_KEY}",
-                "Content-Type": "application/octet-stream"
-}
-
-            response = requests.post(upload_url, headers=headers, data=file.read())
-          
+            response = requests.put(
+                upload_url,
+                headers={
+                    "Authorization": f"Bearer {SUPABASE_KEY}",
+                    "Content-Type": file.content_type,
+                    "x-upsert": "true"
+                },
+                data=file.read()
+            )
 
             print("STATUS:", response.status_code)
+            print("TEXT:", response.text)
 
             if response.status_code in [200, 201]:
                 obj.image_url = f"{SUPABASE_URL}/storage/v1/object/public/media/{file_name}"
@@ -37,6 +41,5 @@ class ProductAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
 
-# 💥 مهم‌ترین خط:
 admin.site.register(Product, ProductAdmin)
 
