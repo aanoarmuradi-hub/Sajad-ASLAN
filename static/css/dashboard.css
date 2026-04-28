@@ -159,14 +159,20 @@ img{
 
     nav {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        width: 100%;
     }
     
     .nav a {
 
-        white-space: nowrap;
+        flex: 1 1 0;          /* همه برابر فضا بگیرن */
+        min-width: 0;         /* 🔥 خیلی مهم */
+        text-align: center;
+        white-space: nowrap;  /* نشکنه */
+        overflow: hidden;     
+        text-overflow: ellipsis; /* اگر جا نشد ... */
+        font-size: 12px;
+        padding: 6px 2px;
     }
 
 
