@@ -165,13 +165,13 @@ img{
     
     .nav a {
 
-        flex: 1 1 0;          /* همه برابر فضا بگیرن */
-        min-width: 0;         /* 🔥 خیلی مهم */
+        flex: 1 1 0;          
+        min-width: 0;         
         text-align: center;
-        white-space: nowrap;  /* نشکنه */
+        white-space: nowrap;  
         overflow: hidden;     
-        text-overflow: ellipsis; /* اگر جا نشد ... */
-        font-size: 12px;
+        text-overflow: ellipsis;
+        font-size: clamp(10px, 2.5vw, 14px);
         padding: 6px 2px;
     }
 
