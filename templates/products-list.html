@@ -1,11 +1,64 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>products-list</title>
+    <link rel="stylesheet" href="{% static 'css/products-list.css'%}">
+    <title>Products List</title>
 </head>
 <body>
-    <h1>here is what you have in your store</h1>
+    <section class="products-page">
+    
+      <!-- 🔍 Header / Filter -->
+      <div class="products-header">
+        <h2>All Products</h2>
+        <a href="{% url 'home' %}">Back To Home</a>
+        
+        <div class="controls">
+          <input type="text" placeholder="Search products...">
+    
+          <select>
+            <option>Sort by</option>
+            <option>Price Low</option>
+            <option>Price High</option>
+          </select>
+        </div>
+      </div>
+    
+      <!-- 📦 Products -->
+      <div class="products-grid">
+        {% for product in products %}
+        
+          <div class="product-card">
+    
+      
+    
+            <img src="{{ product.image_url }}" alt="">
+    
+            <div class="info">
+              <h3>{{ product.name }}</h3>
+    
+              <div class="price-box">
+                <span class="price">${{ product.price }}</span>
+              </div>
+            </div>
+    
+            <div class="actions">
+              <a href="{% url 'add-to-cart' product.id %}">  
+                <button>Add to Cart</button>
+              </a>
+
+              <a href="#">
+                <button class="details">Details</button>
+              </a>
+            </div>
+    
+          </div>
+    
+        {% endfor %}
+      </div>
+    
+    </section>
 </body>
 </html>

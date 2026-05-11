@@ -1,0 +1,165 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Segoe UI,sans-serif;
+
+    background:
+    linear-gradient(135deg,#d9b98e,#f3e3ca);
+
+    min-height:100vh;
+}
+
+
+/* HERO */
+
+.about-hero{
+
+    width:100%;
+
+    min-height:350px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:40px;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.3)
+    ),
+
+    url("https://images.unsplash.com/photo-1441986300917-64674bd600d8");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+
+    max-width:700px;
+
+    color:#fff;
+}
+
+.hero-content h1{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+}
+
+.hero-content p{
+
+    font-size:18px;
+
+    line-height:1.7;
+}
+
+
+/* ABOUT */
+
+.about-section{
+
+    padding:60px 40px;
+}
+
+.about-text{
+
+    text-align:center;
+
+    max-width:800px;
+
+    margin:auto;
+}
+
+.about-text h2{
+
+    font-size:40px;
+
+    margin-bottom:20px;
+}
+
+.about-text p{
+
+    font-size:18px;
+
+    line-height:1.8;
+}
+
+
+/* CARDS */
+
+.about-cards{
+
+    margin-top:50px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+}
+
+.card{
+
+    background:
+    rgba(255,255,255,0.2);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:20px;
+
+    padding:40px;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card h3{
+
+    font-size:42px;
+
+    margin-bottom:10px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .hero-content h1{
+
+        font-size:38px;
+    }
+
+    .hero-content p{
+
+        font-size:15px;
+    }
+
+    .about-text h2{
+
+        font-size:30px;
+    }
+
+    .about-text p{
+
+        font-size:15px;
+    }
+
+    .about-section{
+
+        padding:40px 20px;
+    }
+}

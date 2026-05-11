@@ -23,16 +23,27 @@ from rest_framework_simplejwt.views import TokenRefreshView
 from django.conf import settings
 from django.conf.urls.static import static
 from products.models import Product
-from products.views import ShopView,BuyView,ViewNewProduct,ViewProducts
+from products.views import BuyView,ViewNewProduct,ViewProducts,HomeView,SubCategoryView,ProductListView,AboutView, ContactView,AddToCartView,CartView,RemoveCartItemView,IncreaseQuantityView,DecreaseQuantityView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/token/", TokenObtainPairView.as_view()),
     path("api/token/refresh/", TokenRefreshView.as_view()),
-    path('', ShopView.as_view()),
-    path('shop/dashboard/', ShopView.as_view()),
-    path('buy-section/<int:id>/', BuyView.as_view()),
+    path('', HomeView.as_view(), name='home'),
+    path('shop/dashboard/', HomeView.as_view()),
+    path('buy-section/<int:id>/', BuyView.as_view(), name='buy-section'),
     path('products/list/', ViewProducts.as_view(), name='products-list'),
-    path('new/products/', ViewNewProduct.as_view(), name='new-products')
+    path('new/products/', ViewNewProduct.as_view(), name='new-products'),
+    path('category/<int:category_id>/', SubCategoryView.as_view(), name='subcategories'),
+    path('subcategory/<int:sub_id>/', ProductListView.as_view(), name='products'),
+    path('about/', AboutView.as_view(), name='about'),
+    path('contact/', ContactView.as_view(), name='contact'),
+    path('add-to-cart/<int:id>/',AddToCartView.as_view(),name='add-to-cart'),
+    path('cart/',CartView.as_view(),name='cart'),
+    path('remove-cart-item/<int:id>/',RemoveCartItemView.as_view(),name='remove-cart-item'),
+    path('increase-quantity/<int:id>/',IncreaseQuantityView.as_view(),name='increase-quantity'),
+    path('decrease-quantity/<int:id>/',DecreaseQuantityView.as_view(),name='decrease-quantity'),
+
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

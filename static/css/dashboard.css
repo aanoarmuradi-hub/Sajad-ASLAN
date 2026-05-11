@@ -15,29 +15,222 @@ body {
    
 }
 
-.header{
-    display: flex;
-    background: rgba(137, 43, 226, 0.169);
-    justify-content: space-between;
-    padding: 20px 30px;
+
+
+/* NAVBAR */
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
-.header .link{
+/* CONTAINER */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+}
+
+/* LOGO */
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
     text-decoration: none;
-    color: black;
 }
 
-.nav{
-    background-color:rgba(0, 255, 234, 0.406);
+/* LINKS */
+.nav-links {
+    list-style: none;
     display: flex;
-    justify-content: space-between;
+    gap: 25px;
 }
 
-.nav .navers{
-    color: black;
-    padding: 10px 20px;
-    text-decoration:none ;
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    position: relative;
+}
 
+/* HOVER EFFECT */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #fff;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* SEARCH */
+.search-box input {
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
+.search-box input::placeholder {
+    color: #eee;
+}
+
+/* ACTIONS */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-actions a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+/* CART BADGE */
+.cart {
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+
+    background: red;
+    color: white;
+    font-size: 12px;
+
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+/* LOGIN BUTTON */
+.login {
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: white;
+    color: #333 !important;
+    transition: 0.3s;
+}
+
+.login:hover {
+    background: #ddd;
+}
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+.category-hero{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+    padding:60px 20px;
+}
+
+
+/* CONTENT */
+
+.hero-content{
+
+    max-width:700px;
+
+    color:#fff;
+}
+
+
+/* TAG */
+
+.hero-tag{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(10px);
+
+    font-size:14px;
+
+    margin-bottom:20px;
+
+    border:1px solid rgba(255,255,255,0.2);
+}
+
+
+/* TITLE */
+
+.hero-content h1{
+
+    font-size:58px;
+
+    margin-bottom:20px;
+
+    line-height:1.2;
+}
+
+
+/* TEXT */
+
+.hero-content p{
+
+    font-size:18px;
+
+    line-height:1.7;
+
+    color:#f2f2f2;
+
+    margin-bottom:0%;
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .category-hero{
+
+        min-height:280px;
+        padding:40px 15px;
+    }
+
+    .hero-content h1{
+
+        font-size:34px;
+    }
+
+    .hero-content p{
+
+        font-size:15px;
+    }
+
+  
 }
 
 .main-link {
@@ -46,6 +239,7 @@ body {
     justify-content: center;
     gap: 20px;
     padding: 20px;
+
 }
 
 .main-link .section{
@@ -55,7 +249,7 @@ body {
     flex-direction: column;
     padding: 15px;
     background: var(--card);
-    border-radius: 15px;
+    border-radius: 5px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     transition: 0.3s;
     line-height:10px;
@@ -67,23 +261,16 @@ body {
 
 }
 
-.main-link .section .button{
-    display: flex;
-    gap: 10px;
-    margin-top: auto;
-
-}
-
-.main-link .section .section-link{
+.main-link .section a {
     text-decoration: none;
-    background: var(--primary);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: 0.3s;
-    
-
+    color: #000;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: antiquewhite;
 }
+
+
 .section-link:hover {
     background: var(--secondary);
 }
@@ -91,17 +278,18 @@ body {
 img{
     height: 200px;
     object-fit: contain;
+    
         
 }
 
 .section h3 {
     margin: 10px 0 5px;
 }
-
-.section p {
-    color: var(--muted);
-    
+.section a:hover{
+    background-color: rgba(250, 235, 215, 0.582);
 }
+
+
 
 .footer{
     color: black;
@@ -157,26 +345,136 @@ img{
         margin-left: 0;
     }
 
-    nav {
-        display: flex;
-        flex-wrap: nowrap;
-        width: 100%;
-    }
+
     
-    .nav a {
+}
+@media (max-width: 768px) {
 
-        flex: 1 1 0;          
-        min-width: 0;         
-        text-align: center;
-        white-space: nowrap;  
-        overflow: hidden;     
-        text-overflow: ellipsis;
-        font-size: clamp(10px, 2.5vw, 14px);
-        padding: 6px 2px;
+    .nav-container {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        flex-wrap: wrap;
+        padding: 12px 15px;
+        gap: 10px;
     }
 
 
-}
+    /* LOGO */
+
+    .logo {
+
+        flex: 1;
+    }
+
+    .logo a {
+
+        font-size: 20px;
+
+        color: white;
+
+        text-decoration: none;
+
+        white-space: nowrap;
+    }
+
+
+    /* MENU ICON */
+
+    .menu-toggle {
+
+        display: block;
+
+        font-size: 24px;
+
+        color: white;
+
+        cursor: pointer;
+    }
+
+
+    /* NAV LINKS */
+
+    .nav-links {
+
+        display: none;
+
+        width: 100%;
+
+        flex-direction: column;
+
+        background: rgba(0,0,0,0.85);
+
+        padding: 10px;
+
+        border-radius: 12px;
+    }
+
+    .nav-links.active {
+
+        display: flex;
+    }
+
+    .nav-links li {
+
+        list-style: none;
+
+        text-align: center;
+
+        padding: 10px 0;
+    }
+
+
+    /* SEARCH */
+
+    .search-box {
+
+        width: 100%;
+
+        order: 3;
+    }
+
+    .search-box input {
+
+        width: 100%;
+
+        padding: 10px;
+
+        border-radius: 20px;
+
+        border: none;
+
+        outline: none;
+    }
+
+
+    /* ACTIONS */
+
+    .nav-actions {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+    }
+
+    .cart {
+
+        font-size: 18px;
+    }
+
+    .login {
+
+        padding: 6px 12px;
+
+        font-size: 13px;
+    }
+}  
+
+
 
 .copy-right{
     margin-left: 50%;

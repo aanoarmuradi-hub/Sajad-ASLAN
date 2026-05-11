@@ -4,50 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aslan's shope</title>
+    <title>Order</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <link rel="stylesheet" href="{% static 'css/buy-section.css'%}">
 </head>
 <body>
-    <div class="page-wrapper">
+<section class="buy-container">
+
+    <!-- LEFT -->
+
+    <div class="product-preview">
+
+        <div class="product-image">
+
+            <img src="{{ product.image_url }}"
+                 alt="img">
+
+        </div>
 
 
-        <header class="header">
-            <a class="link" href="#">logo</a>
-            <a class="link" href="#">
-                <i class="fa fa-home"></i>
-                Back To Home
-            </a>
-            <a class="link" href="#">
-                <i class="fa fa-shopping-cart"></i>
-                Cart</a>
-        </header>
-        <main class="main">
-            <div class="product-info">
-                <h3>Name:{{product.name}}</h3>
-                <p>{{product.information}}</p>
-                <p>Price:{{product.price}}</p>
-                <p>Remaining inventory:{{product.stock}}</p>
-                <div class="buy-button ">
-                    <form action="#">
-                        <h3>Enter Your Order Information</h3>
-                        <label for="Name">Your Name</label>
-                        <input type="text" name="name" id="Name" required >
-                        <label for="address">Address</label>
-                        <input type="text" name="address" id="address" required>
-                        <label for="phone">Your Phone Number</label>
-                        <input type="tel" name="phone" id="phone" required inputmode="numeric">
-                        <label for="Qantity">Qantity</label>
-                        <input type="number" name="qantity" id="Qantity" required >
-                        <button type="submit">Send Your Order</button>
-                    </form>
-                </div>
-            </div> 
-        </main>
+        <div class="product-details">
 
+            <h1>{{ product.name }}</h1>
+
+            <p class="price">
+                ${{ product.price }}
+            </p>
+
+            <p class="description">
+
+                Premium quality product with modern
+                design and fast delivery.
+
+            </p>
+
+        </div>
 
     </div>
+
+
+
+
+    <!-- RIGHT -->
+
+    <form class="buy-form">
+
+
+        <h2>Complete Your Order</h2>
+
+
+        <input type="text"
+               placeholder="Full Name">
+
+
+        <input type="email"
+               placeholder="Email Address">
+
+
+        <input type="text"
+               placeholder="Phone Number">
+
+
+        <input type="text"
+               placeholder="Shipping Address">
+
+
+        <div class="quantity-box">
+
+            <label>Quantity</label>
+
+            <input type="number"
+                   value="1"
+                   min="1">
+
+        </div>
+
+
+        <button type="submit">
+
+            Place Order
+
+        </button>
+
+    </form>
+
+</section>
+
 </body>
 </html>
 

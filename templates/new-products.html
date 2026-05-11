@@ -1,13 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>new-products</title>
+    <link rel="stylesheet" href="{% static 'css/new-products.css'%}">
+    <title>New Products</title>
 </head>
+<h2>our new products</h2>
+  {% for product in products %}
 <body>
-
-    <h1>your new products</h1>
-
+    <div class="product-card">
+      <span class="badge">NEW</span>
+    
+      <img src="{{ product.image_url }}" alt="">
+    
+      <div class="info">
+        <h3>{{ product.name }}</h3>
+        <p class="price">$30.0</p>
+      </div>
+      <a href="{% url 'add-to-cart' product.id %}">
+        <button>Add to Cart</button>
+      </a>
+    </div>
 </body>
+  {% endfor %}
 </html>

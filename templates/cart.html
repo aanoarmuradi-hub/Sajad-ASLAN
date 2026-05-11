@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <title>Cart</title>
+</head>
+<body>
+<section class="cart-container">
+
+    <div class="cart-left">
+
+        <h1>Your Cart</h1>
+
+
+        {% for item in cart_items %}
+
+        <div class="cart-card">
+
+            <img src="{{ item.product.image_url }}"
+                 alt="img">
+
+
+            <div class="cart-info">
+
+                <h2>
+                    {{ item.product.name }}
+                </h2>
+
+                <P>Quantity</P>
+
+                <div class="quantity-controls">
+                    <a href="{% url 'decrease-quantity' item.id %}">
+
+                        -
+                    </a>
+                    <span>
+                        {{ item.quantity }}
+                    </span>
+                    <a href="{% url 'increase-quantity' item.id %}">
+                        +
+                    </a>
+                
+                </div>
+
+                <span>
+                    ${{ item.product.price }}
+                </span>
+
+                <a href="{% url 'remove-cart-item' item.id %}"
+                class="remove-btn">Remove</a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+
+
+
+    <div class="cart-right">
+
+        <h2>Order Summary</h2>
+
+        <div class="summary-box">
+
+            <p>Total Price</p>
+
+            <h1>
+                ${{ total_price }}
+            </h1>
+
+        </div>
+
+
+        <button>
+
+            Checkout
+
+        </button>
+
+    </div>
+
+</section>
+
+</body>
+</html>

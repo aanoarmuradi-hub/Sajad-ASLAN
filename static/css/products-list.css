@@ -1,0 +1,131 @@
+body{
+    padding: 0%;
+    margin: 0%;
+    
+}
+
+/* 🎯 کل صفحه */
+.products-page {
+  padding: 20px;
+}
+
+/* 🔍 Header */
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.products-header h2 {
+  margin: 0;
+}
+
+.products-header a{
+  text-decoration: none;
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: black;
+  margin-left: 120px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+.controls input,
+.controls select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* 📦 grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* 🧩 کارت */
+.product-card {
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+}
+
+/* 🖼 تصویر */
+.product-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+}
+
+
+
+/* 🔴 badge */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff4d4d;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+/* 📄 متن */
+.info h3 {
+  font-size: 14px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 💰 قیمت */
+.price-box {
+  margin-top: 5px;
+}
+
+.price {
+  color: #e60023;
+  font-weight: bold;
+}
+
+/* 🎮 دکمه */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.product-card button {
+  flex: 1;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.product-card .details {
+  background: #333;
+}

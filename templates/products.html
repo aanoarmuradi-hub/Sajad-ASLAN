@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/products.css'%}">
+  <title>Products</title>
+</head>
+<body>
+<nav class="navbar">
+
+    <div class="nav-left">
+        
+        <h2>MyShop</h2>
+    </div>
+
+    <div class="nav-right">
+        <a href="{% url 'home' %}">Home</a>
+    </div>
+
+</nav>
+
+
+
+<section class="top-section">
+
+    <div class="top-text">
+        <h1>Discover Amazing Products</h1>
+
+        <p>
+            Explore premium products with modern style,
+            high quality and affordable prices.
+        </p>
+    </div>
+
+</section>
+
+
+<main class="products-container">
+
+    {% for product in products %}
+
+    <div class="product-card">
+
+        <div class="product-image">
+            <img src="{{ product.image_url }}" alt="img">
+        </div>
+
+
+        <div class="product-info">
+
+            <h2>{{ product.name }}</h2>
+
+            <p class="price">${{ product.price }}</p>
+
+            <div class="buttons">
+
+                <a href="{% url 'buy-section' product.id %}" class="buy-btn">
+                    Buy Now
+                </a>
+
+                <a href="{% url 'add-to-cart' product.id %}" class="cart-btn">
+                    Add To Cart
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</main>
+</body>
+</html>

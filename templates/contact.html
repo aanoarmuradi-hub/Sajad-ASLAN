@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/contact.css'%}">
+    <title>Contact</title>
+</head>
+<body>
+    
+    <section class="contact-container">
+
+    <div class="contact-info">
+
+        <h1>Contact Us</h1>
+
+        <p>
+            Have questions? Contact our support team anytime.
+        </p>
+
+        <div class="info-box">
+            <h3>Email</h3>
+            <span>support@myshop.com</span>
+        </div>
+
+        <div class="info-box">
+            <h3>Phone</h3>
+            <span>+123 456 789</span>
+        </div>
+
+    </div>
+
+
+
+    <form class="contact-form">
+
+        <input type="text" placeholder="Your Name">
+
+        <input type="email" placeholder="Your Email">
+
+        <textarea placeholder="Your Message"></textarea>
+
+        <button type="submit">
+            Send Message
+        </button>
+
+    </form>
+
+</section>
+</body>
+</html>

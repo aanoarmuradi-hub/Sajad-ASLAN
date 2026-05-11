@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/subcategories.css'%}">
+  <title>Subcategories</title>
+</head>
+
+<body>
+<nav class="navbar">
+
+    <div class="nav-left">
+        <h2>MyShop</h2>
+      </div>
+      
+    <div class="nav-right">
+      <a href="{% url 'home' %}">Back To Home</a>
+    </div>
+    
+  </nav>
+  
+
+  <main class="categories-container">
+    
+    {% for sub in subs %}
+
+    <div class="category-card">
+
+        <div class="card-image">
+            <img src="{{ sub.image_url }}" alt="img">
+        </div>
+
+        <div class="card-content">
+            <h2>{{ sub.name }}</h2>
+
+            <a href="{% url 'products' sub.id %}">
+                See All
+            </a>
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</main>
+</html>

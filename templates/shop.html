@@ -4,53 +4,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wellcome to Aslan's Shop </title>
+    <title>Wellcome to My Shop </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
     <link rel="stylesheet" href="{% static 'css/dashboard.css'%}">
 </head>
-
 <body>    
-    <header class="header">
-        <a class="link" href="#">
-            <i class="fa fa-home"></i>
-            Home</a>
-        <a class="link" href="#">
-            <i class="fas fa-headphones"></i>
-            Contact</a>
-        <a class="link" href="#">
-            <i class="fa fa-info-circle"></i>
-            About</a>
-        <a class="logo" > <img src="#" alt="Logo"></a>
-    </header>
+    <header class="navbar">
+    <div class="nav-container">
+    
+        <!-- LOGO -->
+        <div class="menu-toggle">☰</div>
+        <div class="logo">
+            <a href="#">MyShop</a>
+        </div>
+    
+        <!-- MENU -->
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'products-list' %}">Products</a></li>
+            <li><a href="{% url 'new-products' %}">New</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+    
+        <!-- SEARCH -->
+        <div class="search-box">
+            <input type="text" placeholder="Search products...">
+        </div>
+    
+        <!-- ACTIONS -->
+        <div class="nav-actions">
+            <a href="{% url 'cart' %}" class="cart">🛒 <span class="badge">2</span></a>
+            <a href="#" class="login">Login</a>
+        </div>
+    
+    </div>
 
-    <nav class="nav">
-        <a class="navers" href="#">
-            <i class="fa fa-shopping-cart"></i>
-            Cart</a>
-        <a class="navers" href="{% url 'products-list' %}">
-            <i class="fas fa-clipboard-list"></i>
-            Products</a>
-        <a class="navers" href="{% url 'new-products' %}">
-            <i class="fas fa-angle-double-right"></i>
-            New</a>
-        <a class="navers" href="#">
-            <i class="fa fa-user-plus"></i>
-            Login</a>
-    </nav>
+    
+</header>
+
+<section class="category-hero">
+
+    <div class="hero-content">
+
+        <span class="hero-tag">
+            Premium Collection
+        </span>
+
+        <h1>
+            Explore Our Categories
+        </h1>
+
+        <p>
+            Discover trending products, premium quality items,
+            and modern collections designed for your lifestyle.
+        </p>
+
+    </div>
+
+</section>
 
     <main class="main-link">
-        {% for product in products %}
-        <section class="section">
-            <img src="{{ product.image_url }}"alt="product img">
-            <h3>Name:{{product.name }}</h3>
-            <p>Price:{{product.price }}</p>
-            <p>Stock:{{product.stock}}</p>
-            <div class="button">      
-                <a class="section-link" href="#">Add to Cart</a>
-                <a class="section-link" href="/buy-section/{{ product.id }}/">Buy Product</a>
-            </div>
-        </section>
+        {% for cat in categories %}
+          <div class="section">
+            <h2>{{cat.name}}</h2>
+            <img src="{{ cat.image_url }}" alt="img">
+            <a href="{% url 'subcategories' cat.id %}">
+              <p>Start Shoping {{cat.name}}</p>
+            </a>
+          </div>
         {% endfor %}
     </main>
 
@@ -61,25 +83,11 @@
                     Here Is What We Can Do For You
                 </h3>
                 <p class="footer-pragraf">
-                    Aslan'Srote is a shop designed to take your business to a higher level. If you are reading this, it means that you are on our demo website, but we can turn this website into your own site with your own design and products.
+                    My Shop is a shop designed to take your business to a higher level. If you are reading this, it means that you are on our demo website, but we can turn this website into your own site with your own design and products.
                     <br>
                     <br>
-                    فروشگاه سجاداسلان طراحی شده است تا کسب و کار شما را به سطح بالاتری ببرد. اگر این را می‌خوانید، به این معنی است که شما در وب‌سایت نمایشی ما هستید، اما ما می‌توانیم این وب‌سایت را به سایت خودتان با طراحی و محصولات خودتان تبدیل کنیم
+                    فروشگاه من طراحی شده است تا کسب و کار شما را به سطح بالاتری ببرد. اگر این را می‌خوانید، به این معنی است که شما در وب‌سایت نمایشی ما هستید، اما ما می‌توانیم این وب‌سایت را به سایت خودتان با طراحی و محصولات خودتان تبدیل کنیم
                 </p>
-            </div>
-
-            <div class="link-box">
-                <ul class="footer-list">
-                    <li class="footer-link" >
-                        <a class="link" href="#">Home</a>
-                    </li>
-                    <li class="footer-link">
-                        <a class="link" href="#">About</a >
-                    </li>
-                    <li class="footer-link">
-                        <a class="link" href="#">Contact</a>
-                    </li>
-                </ul>
             </div>
         </div>
     </footer>
@@ -88,4 +96,13 @@
 
 <script src="{% static 'js/shop-dashboard.js' %}"></script>
 </body>
+
+<script>
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector(".nav-links");
+
+    toggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
+    });
+</script>
 </html>

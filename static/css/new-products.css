@@ -1,0 +1,69 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    background: aquamarine;
+}
+.product-card {
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* 🖼 تصویر */
+.product-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* 🏷 badge NEW */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  background: #ff4d4d;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+/* 📄 متن */
+.info h3 {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.price {
+  color: #e60023;
+  font-weight: bold;
+}
+
+/* 🛒 دکمه */
+.product-card button {
+  margin-top: 10px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+}
+h2{
+
+    text-align: center;
+}
