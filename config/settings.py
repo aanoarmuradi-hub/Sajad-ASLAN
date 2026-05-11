@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['*']
@@ -135,7 +135,7 @@ USE_TZ = True
 
 
 
-DEBUG = True
+DEBUG = False
 
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
