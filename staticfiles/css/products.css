@@ -1,0 +1,408 @@
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+/* BODY */
+
+body{
+    font-family:Segoe UI,sans-serif;
+
+    background:
+    linear-gradient(135deg,#d9b98e,#f3e3ca);
+
+    min-height:100vh;
+}
+
+
+/* NAVBAR */
+
+.navbar{
+
+    width:100%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 40px;
+
+    background:rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(10px);
+
+    border-bottom:1px solid rgba(255,255,255,0.2);
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+}
+
+
+.nav-left{
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+}
+
+.nav-left img{
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+}
+
+.nav-left h2{
+    color:#fff;
+    font-size:28px;
+}
+
+
+.nav-right a{
+
+    text-decoration:none;
+
+    background:#fff;
+    color:#222;
+
+    padding:10px 22px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.nav-right a:hover{
+    transform:translateY(-3px);
+
+    background:#f5f5f5;
+}
+
+
+/* TOP SECTION */
+
+.top-section{
+
+    width:100%;
+
+    padding:60px 40px 20px;
+
+    text-align:center;
+}
+
+.top-text h1{
+    font-size:48px;
+
+    color:#fff;
+
+    margin-bottom:15px;
+}
+
+.top-text p{
+
+    color:#f7f7f7;
+
+    max-width:700px;
+
+    margin:auto;
+
+    line-height:1.7;
+
+    font-size:18px;
+}
+
+
+/* PRODUCTS */
+
+.products-container{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3, 1fr);
+
+    gap:30px;
+
+    padding:40px;
+    align-items:start;
+}
+
+
+/* CARD */
+
+.product-card{
+
+    background:
+    rgba(255,255,255,0.2);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    transition:0.4s;
+
+    border:1px solid rgba(255,255,255,0.2);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+
+    width:100%;
+
+    max-width:350px; /* 👈 نمیذاره غول شه */
+
+    margin:auto;
+}
+
+
+.product-card:hover{
+
+    transform:
+    translateY(-10px);
+
+    box-shadow:
+    0 18px 35px rgba(0,0,0,0.15);
+}
+
+
+/* IMAGE */
+
+.product-image{
+
+    width:100%;
+    height:260px;
+    background:#f5f5f5;
+    overflow:hidden;
+}
+
+.product-image img{
+    
+    width:100%;
+    height:100%;
+    object-fit: contain;
+    transition:0.5s;
+}
+
+
+.product-card:hover img{
+
+    transform:scale(1.08);
+}
+
+
+/* INFO */
+
+.product-info{
+
+    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:15px;
+}
+
+
+.product-info h2{
+
+    font-size:24px;
+    color:#222;
+}
+
+
+.price{
+
+    font-size:26px;
+
+    font-weight:bold;
+
+    color:#111;
+}
+
+
+/* BUTTONS */
+
+.buttons{
+
+    display:flex;
+
+    gap:12px;
+}
+
+
+.buttons a{
+
+    flex:1;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    padding:12px;
+
+    border-radius:14px;
+
+    transition:0.3s;
+
+    font-weight:600;
+}
+
+
+/* BUY */
+
+.buy-btn{
+
+    background:#111;
+    color:#fff;
+}
+
+.buy-btn:hover{
+
+    background:#333;
+
+    transform:translateY(-2px);
+}
+
+
+/* CART */
+
+.cart-btn{
+
+    background:#fff;
+    color:#222;
+}
+
+.cart-btn:hover{
+
+    background:#f1f1f1;
+
+    transform:translateY(-2px);
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .navbar{
+        padding:15px 20px;
+    }
+
+    .nav-left h2{
+        font-size:22px;
+    }
+
+    .nav-right a{
+
+        padding:8px 16px;
+
+        font-size:14px;
+    }
+
+
+    .top-section{
+
+        padding:40px 20px 10px;
+    }
+
+    .top-text h1{
+
+        font-size:30px;
+    }
+
+    .top-text p{
+
+        font-size:15px;
+    }
+
+
+    .products-container{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:12px;
+
+        padding:15px;
+        max-width:100%;
+    }
+
+
+    .product-card{
+
+        border-radius:18px;
+    }
+
+
+    .product-image{
+
+        height:140px;
+    }
+
+
+    .product-info{
+
+        padding:12px;
+
+        gap:10px;
+    }
+    
+
+    .product-info h2{
+        
+        font-size:18px;
+
+        line-height:1.4;
+
+        min-height:50px; /* 👈 همه کارت‌ها هم‌قد */
+
+        overflow:hidden;
+
+        display:-webkit-box;
+
+        -webkit-line-clamp:2; /* 👈 حداکثر ۲ خط */
+
+        -webkit-box-orient:vertical;
+
+
+    
+    
+}
+
+
+
+
+
+    .price{
+
+        font-size:18px;
+    }
+
+
+    .buttons{
+
+        flex-direction:column;
+    }
+
+
+    .buttons a{
+
+        padding:10px;
+
+        font-size:13px;
+    }
+}

@@ -1,99 +1,255 @@
-:root {
-    --primary: #4f46e5;      /* آبی بنفش */
-    --secondary: #06b6d4;    /* آبی روشن */
-    --bg: #f8fafc;           /* بک‌گراند */
-    --card: #ffffff;         /* کارت */
-    --text: #1e293b;         /* متن */
-    --muted: #64748b;        /* متن کم‌رنگ */
-}
-* {
-    box-sizing: border-box;
-}
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
-    background: linear-gradient(135deg, #4f46e5, #06b6d4, #22c);
-    
-}
-.page-wrapper {
-    width: 100%;
-    min-height: 100vh;  
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.header{
-    display: flex;
-    justify-content: center;
-    justify-content:space-between;
-    padding: 30px;
-    background: #22c;
-}
-.header .link{
-    color: white;
-    text-decoration: none;
+/* RESET */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.main{
-    display: flex;
-    margin-left: 220px;
-    
+
+/* BODY */
+
+body{
+
+    font-family:Segoe UI,sans-serif;
+
+    background:
+    linear-gradient(135deg,#d9b98e,#f3e3ca);
+
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:40px;
 }
 
-.main .product-info{
-    margin-left: 150px;
-    line-height: 100px;
-    background: rgba(255, 255, 255, 0.47);
-    padding: 20px;
-    text-align: center;
-    width: 50%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
-    
+
+/* CONTAINER */
+
+.buy-container{
+
+    width:100%;
+    max-width:1200px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:40px;
+
+    background:
+    rgba(255,255,255,0.2);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:30px;
+
+    padding:40px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.1);
 }
 
-.main .product-info .buy-button{
-    line-height: 30px;
-    background: rgba(179, 235, 245, 0.733);
-    border-radius: 10px;
-    padding: 20px;
-    
-}
-.main .product-info .buy-button  button { 
-    margin-left: 40%;
-    margin-top: 20px;
-    display: block;
-    background: black;
-    color: white;
-    padding: 8px;
-    border-radius: 10px;
-    
-}
-.main .product-info .buy-button label{
-    display: block;
-    
-}
-@media (max-width: 768px) {
 
-    .main {
-        flex-direction: column;   
-        margin-left: 0;           
-        padding: 10px;
+/* LEFT */
+
+.product-preview{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:25px;
+}
+
+
+/* IMAGE */
+
+.product-image{
+
+    width:100%;
+    height:420px;
+
+    background:#f5f5f5;
+
+    border-radius:25px;
+
+    overflow:hidden;
+}
+
+.product-image img{
+
+    width:100%;
+    height:100%;
+    object-fit: contain;
+}
+
+
+/* DETAILS */
+
+.product-details h1{
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+    color:#222;
+}
+
+
+.price{
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+
+    color:#111;
+}
+
+
+.description{
+
+    line-height:1.8;
+
+    color:#444;
+}
+
+
+/* FORM */
+
+.buy-form{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:18px;
+}
+
+
+.buy-form h2{
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+    color:#222;
+}
+
+
+.buy-form input{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:16px;
+
+    outline:none;
+
+    background:#fff;
+
+    font-size:15px;
+}
+
+
+/* QUANTITY */
+
+.quantity-box{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:8px;
+}
+
+
+.quantity-box label{
+
+    font-weight:600;
+}
+
+
+/* BUTTON */
+
+.buy-form button{
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#111;
+
+    color:#fff;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+
+.buy-form button:hover{
+
+    background:#333;
+
+    transform:translateY(-2px);
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    body{
+
+        padding:15px;
     }
 
-    .main .product-info {
-        margin-left: 0;
-        margin: 0%;          
-        width: 100%;          
-        line-height: 15px;    
+    .buy-container{
+
+        grid-template-columns:1fr;
+
+        padding:20px;
+
+        gap:25px;
     }
 
-    .main .product-info .buy-button button {
-        margin-left: 0;        
-        width: 100%;          
+    .product-image{
+
+        height:250px;
     }
 
+    .product-details h1{
+
+        font-size:28px;
+    }
+
+    .price{
+
+        font-size:22px;
+    }
+
+    .buy-form h2{
+
+        font-size:26px;
+    }
+
+    .buy-form input{
+
+        padding:14px;
+    }
+
+    .buy-form button{
+
+        padding:14px;
+    }
 }
